@@ -17,7 +17,6 @@ module RailsTypedSettings
     end
     
     def install_rails_typed_settings
-      template 'model.rb', 'app/models/settings.rb'
       migration_template 'migration.rb', 'db/migrate/create_settings.rb'
     end
   end
