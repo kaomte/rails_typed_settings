@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = RailsTypedSettings::VERSION
   s.authors     = ["Kaom Te"]
   s.email       = ["kaom@tekkinnovations.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RailsTypedSettings."
-  s.description = "TODO: Description of RailsTypedSettings."
+  s.homepage    = "http://www.tekkinnovations.com"
+  s.summary     = "Typed settings for rails."
+  s.description = "Typed settings for rails."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
