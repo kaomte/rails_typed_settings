@@ -25,7 +25,7 @@ module RailsTypedSettings
       def setting(var_name, var_type, opts = {})
         unless Setting.find_by(var_name: var_name.to_s)
           s = Setting.create(var_name: var_name.to_s, var_type: var_type.to_s)
-          s.d_val = opts[:default] if opts[:default]
+          s.d_val = opts[:default] if opts.has_key?(:default)
           s.save!
         end
       end
