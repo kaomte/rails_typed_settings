@@ -53,5 +53,8 @@ Get list of all settings
 Settings.keys   # [:sale, :sale_discount...]
 ```
 
+## Limitations
+
+Because of the way its built you cannot store nil/null as settings values
 
 This project rocks and uses MIT-LICENSE.

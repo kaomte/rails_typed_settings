@@ -36,7 +36,7 @@ class RailsTypedSettingsTest < ActiveSupport::TestCase
 
   test "setting to bad type raises exception" do
     assert_raises(RailsTypedSettings::Setting::IncorrectType) do
-      Settings[:sale_discount] = "this is not a float"
+      Settings[:sale_discount] = { not_a_float: true }
     end
   end
 
@@ -61,9 +61,29 @@ class RailsTypedSettingsTest < ActiveSupport::TestCase
     assert_equal(DateTime, Settings[:sale_start].class)
     assert_equal(now.to_s, Settings[:sale_start].to_s)
   end
+
+  test "floats can be set with Strings" do
+    Settings[:sale_discount] = "0.5"
+    assert_equal(0.5, Settings[:sale_discount])
+  end
+
+  test "floats can be set with Integers" do
+    Settings[:sale_discount] = 1
+    assert_equal(1.0, Settings[:sale_discount])
+  end
+
+  test "integers can be set with Strings" do
+    Settings[:sale_count] = "1"
+    assert_equal(1, Settings[:sale_count])
+  end
+
   
   test "keys" do
-    assert_equal(Set.new([:sale, :sale_discount, :sale_name, :sale_start]),
+    assert_equal(Set.new([:sale,
+                          :sale_discount,
+                          :sale_name,
+                          :sale_count,
+                          :sale_start]),
                  Settings.keys.to_set)
   end
   
