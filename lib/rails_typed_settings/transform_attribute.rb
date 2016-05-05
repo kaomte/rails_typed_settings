@@ -12,6 +12,7 @@ module RailsTypedSettings
           end
           
           define_method("#{method}=") do |new_value|
+            new_value = type_class.coerce(new_value)
             raise IncorrectType unless class_match(new_value)
             self.#{field} = transform(new_value)
             @#{method} = new_value

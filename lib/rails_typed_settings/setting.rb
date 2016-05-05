@@ -8,7 +8,8 @@ module RailsTypedSettings
     transform_attr :default_transformed_value, :d_val
 
     def value
-      val || d_val
+      return val if !val.nil?
+      d_val
     end
 
     def value=(new_value)
@@ -31,13 +32,13 @@ module RailsTypedSettings
       RailsTypedSettings::Base::TYPES[var_type.to_sym]
     end
 
-    def transform(value)
-      return nil if value.nil?
-      JSON.dump(value)
+    def transform(v)
+      return nil if v.nil?
+      type_class.transform(v)
     end
 
-    def untransform(t_value)
-      JSON.load(t_value)
+    def untransform(v)
+      type_class.untransform(v)
     end
   end
 end

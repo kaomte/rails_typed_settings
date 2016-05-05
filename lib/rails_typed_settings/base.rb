@@ -1,11 +1,11 @@
 module RailsTypedSettings
   class Base
     TYPES = {
-      float: Float,
-      integer: Integer,
-      string: String,
-      datetime: DateTime,
-      boolean: [TrueClass, FalseClass]
+      float: Types::Float,
+      integer: Types::Integer,
+      string: Types::String,
+      datetime: Types::DateTime,
+      boolean: Types::Boolean
     }
     
     CACHE = Cache.new(20) do |k|
