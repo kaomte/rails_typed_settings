@@ -25,7 +25,7 @@ $ rake db:migrate
 
 ## Usage
 
-Add a config/initializers/settings.rb file with contents:
+Add a app/services/settings.rb file with contents:
 
 ```ruby
 class Settings < RailsTypedSettings::Base
